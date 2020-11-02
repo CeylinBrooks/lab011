@@ -11,41 +11,39 @@ var imgThree = document.getElementById('img-three');
 
 
 //constructor
-function Goat(name){
+function Goat(name) {
   this.name = name;
   this.src = `images/${name}.jpg`;
   this.views = 0;
-  this. votes = 0;
+  this.votes = 0;
   goats.push(this);
 }
 
 //functions
 
-function getRandomGoatsIndex(){
+function getRandomGoatsIndex() {
   return Math.floor(Math.random() * goats.length);
 }
 
-function (){
-  var goatOne = getRandomGoatsIndex();
-  var goatTwo = getRandomGoatsIndex();
-  var goatThree = getRandomGoatsIndex();
-  while(goatOne === goatTwo){
-    goatTwo = getRandomGoatsIndex();
-  }
+var goatOne = getRandomGoatsIndex();
+var goatTwo = getRandomGoatsIndex();
+var goatThree = getRandomGoatsIndex();
+while (goatOne === goatTwo) {
+  goatTwo = getRandomGoatsIndex();
 }
 
 //event handler
 
 //exectable code
 
-new Goat('crusin-goat','jpg');
-new Goat('float-your-goat','jpg');
-new Goat('goat=away','jpg');
-new Goat('goat-out-of-hand','jpg');
-new Goat('kissing-goat','jpg');
-new Goat('sassy-goat','jpg');
+new Goat('crusin-goat', 'jpg');
+new Goat('float-your-goat', 'jpg');
+new Goat('goat=away', 'jpg');
+new Goat('goat-out-of-hand', 'jpg');
+new Goat('kissing-goat', 'jpg');
+new Goat('sassy-goat', 'jpg');
 new Goat('smiling-goat');
-new Goat ('crusin-goat');
+new Goat('crusin-goat');
 //event listener
 
 
