@@ -27,13 +27,13 @@ function getRandomGoatsIndex() {
 }
 //exectable code
 
-new Goat('cruisin-goat');
-new Goat('float-your-goat');
-new Goat('goat-away');
-new Goat('goat-out-of-hand');
-new Goat('kissing-goat');
-new Goat('sassy-goat');
-new Goat('smiling-goat');
+new Goat('baconbandages');
+new Goat('begin-weights');
+new Goat('bread-slippers');
+new Goat('cameralensmug');
+new Goat('donut-seeds');
+new Goat('nothing-pck');
+new Goat('pickle-phone');
 
 
 console.log(getRandomGoatsIndex());
