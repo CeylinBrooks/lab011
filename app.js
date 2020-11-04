@@ -6,9 +6,9 @@ var goats = [];
 var totalClicksAllowed = 0;
 var clicks = 0;
 var myContainer = document.getElementById('container');
-var imgOne = document.getElementById('imgone');
-var imgTwo = document.getElementById('imgtwo');
-var imgThree = document.getElementById('imgthree');
+var imgOneEl = document.getElementById('imgone');
+var imgTwoEl = document.getElementById('imgtwo');
+var imgThreeEl = document.getElementById('imgthree');
 
 
 //constructor
@@ -27,14 +27,14 @@ function getRandomGoatsIndex() {
 }
 //exectable code
 
-new Goat('crusin-goat', 'jpg');
-new Goat('float-your-goat', 'jpg');
-new Goat('goat=away', 'jpg');
-new Goat('goat-out-of-hand', 'jpg');
-new Goat('kissing-goat', 'jpg');
-new Goat('sassy-goat', 'jpg');
+new Goat('cruisin-goat');
+new Goat('float-your-goat');
+new Goat('goat-away');
+new Goat('goat-out-of-hand');
+new Goat('kissing-goat');
+new Goat('sassy-goat');
 new Goat('smiling-goat');
-new Goat('crusin-goat');
+
 
 console.log(getRandomGoatsIndex());
 
@@ -49,16 +49,17 @@ function renderGoats() {
   }
   imgOneEl.src = goats[goatOne].src;
   imgOneEl.alt = goats[goatOne].name;
-  
+
 
   imgTwoEl.src = goats[goatTwo].src;
   imgTwoEl.alt = goats[goatTwo].name;
 }
-renderGoats;
+renderGoats();
 
-console.log(goatOne, goatTwo);
+//console.log(goatOne, goatTwo);
 
 //event handler
+
 function handleClick(event) {
   var clickedGoat = event.target.alt;
   clicks++;
@@ -70,6 +71,7 @@ function handleClick(event) {
   }
 
 
-//event listener
+  //event listener
 
+}
 myContainer.addEventListener('click', handleClick);
