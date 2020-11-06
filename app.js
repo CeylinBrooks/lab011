@@ -2,8 +2,8 @@
 
 //global varibles
 var gifts = [];
-var totalClicksAllowed = 0;
-var clicks = 25;
+var totalClicksAllowed = 25;
+var clicks = 0;
 var renderQueue = [];
 var myContainer = document.getElementById('container');
 var imgOneEl = document.getElementById('imgone');
