@@ -3,7 +3,7 @@
 //global varibles
 var gifts = [];
 var totalClicksAllowed = 0;
-var clicks = 0;
+var clicks = 25;
 var renderQueue = [];
 var myContainer = document.getElementById('container');
 var imgOneEl = document.getElementById('imgone');
@@ -92,6 +92,13 @@ renderGifts();
 function handleClick(event) {
   var clickedGift = event.target.alt;
   clicks++;
+  for (var i = 0; i < gifts.length ; i++){
+    if (clickedGift === gifts[i].name){
+      console.log(` ${gifts[i].name} is ${gifts[i].votes} `);
+      gifts[i].votes++;
+      //console.log(gifts[i].votes);
+    }
+  }
 
   renderGifts();
   if (clicks === totalClicksAllowed) {
