@@ -117,11 +117,11 @@ myContainer.addEventListener('click', handleClick);
 var ctx = document.getElementById('myChart').getContext('2d');
 var chart = new Chart(ctx, {
   // The type of chart we want to create
-  type: 'line',
+  type: 'bar',
 
   // The data for our dataset
   data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['Result One', 'Result Two', 'Result Three'],
     datasets: [{
       label: 'My First dataset',
       backgroundColor: 'rgb(255, 99, 132)',
@@ -135,13 +135,13 @@ var chart = new Chart(ctx, {
 });
 var chart = new Chart(ctx, {
   // The type of chart we want to create
-  type: 'line',
+  type: 'bar',
 
   // The data for our dataset
   data: {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['Result One', 'Result Two', 'Result Three'],
     datasets: [{
-      label: 'My First dataset',
+      label: '',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
       data: [0, 10, 5, 2, 20, 30, 45]
