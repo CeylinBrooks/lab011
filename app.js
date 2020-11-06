@@ -34,6 +34,22 @@ new Gift('cameralensmug');
 new Gift('donut-seeds');
 new Gift('nothing-pck');
 new Gift('pickle-phone');
+new Gift('bag');
+new Gift('banana');
+new Gift('bathroom');
+new Gift('chair');
+new Gift('cthulhu');
+new Gift('dog-duck');
+new Gift('dragon');
+new Gift('pen');
+new Gift('pet-sweep');
+new Gift('scissors');
+new Gift('shark');
+new Gift('tauntaun');
+new Gift('unicorn');
+new Gift('usb');
+new Gift('water-can');
+new Gift('wine-glass');
 
 
 console.log(getRandomGiftsIndex());
