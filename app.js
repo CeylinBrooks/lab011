@@ -103,6 +103,8 @@ function handleClick(event) {
   renderGifts();
   if (clicks === totalClicksAllowed) {
     myContainer.removeEventListener('click', handleClick);
+    var storeVotes = 0;
+    localStorage.setItem('storedVote');
 
   }
 
