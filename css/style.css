@@ -21,6 +21,8 @@ img {
 }
 
 #contain {
-  width: 300px;
+  color: black;
+  margin: auto;
+  width: 400px;
   height: 400px;
 }
