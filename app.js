@@ -9,6 +9,7 @@ var myContainer = document.getElementById('container');
 var imgOneEl = document.getElementById('imgone');
 var imgTwoEl = document.getElementById('imgtwo');
 var imgThreeEl = document.getElementById('imgthree');
+var myList = document.getElementById('list');
 var ctx = document.getElementById('myChart');
 
 //constructor
@@ -56,9 +57,9 @@ console.log(getRandomGiftsIndex());
 
 function populateQueue() {
   renderQueue = [];
-  while(renderQueue.length < 3){
+  while (renderQueue.length < 3) {
     var item = getRandomGiftsIndex();
-    while(renderQueue.includes(item)){
+    while (renderQueue.includes(item)) {
       item = getRandomGiftsIndex();
     }
     renderQueue.push(item);
@@ -83,7 +84,20 @@ function renderGifts() {
   imgThreeEl.alt = gifts[giftThree].name;
   gifts[giftThree].views++;
 }
+
+//chart
+function dataFunct() {
+
+}
 renderGifts();
+
+function renderResults() {
+  for (var i = 0; i < gifts.length; i++) {
+    var li = document.createElement('li')
+    li.textContent = `${gifts[i].name} received ${gifts[i].votes} votes and was viewed ${gifts[i].views} times.`;
+    myList.appendChild(li);
+  }
+}
 
 
 
@@ -92,8 +106,8 @@ renderGifts();
 function handleClick(event) {
   var clickedGift = event.target.alt;
   clicks++;
-  for (var i = 0; i < gifts.length ; i++){
-    if (clickedGift === gifts[i].name){
+  for (var i = 0; i < gifts.length; i++) {
+    if (clickedGift === gifts[i].name) {
       console.log(` ${gifts[i].name} is ${gifts[i].votes} `);
       gifts[i].votes++;
       //console.log(gifts[i].votes);
@@ -103,8 +117,9 @@ function handleClick(event) {
   renderGifts();
   if (clicks === totalClicksAllowed) {
     myContainer.removeEventListener('click', handleClick);
-    var storeVotes = 0;
-    localStorage.setItem('storedVote');
+    var stringifiedGifts = JSON.stringify(gifts);
+    localStorage.setItem('stringifiedGifts', stringifiedGifts);
+    renderResults();
 
   }
 
@@ -118,42 +133,56 @@ myContainer.addEventListener('click', handleClick);
 
 
 
-var ctx = document.getElementById('myChart').getContext('2d');
+// var ctx = document.getElementById('myChart').getContext('2d');
 
-var chart = new Chart(ctx, {
-  // The type of chart we want to create
-  type: 'bar',
+// var chart = new Chart(ctx, {
+//   // The type of chart we want to create
+//   type: 'bar',
 
-  // The data for our dataset
-  data: {
-    labels: ['Result One', 'Result Two', 'Result Three'],
-    datasets: [{
-      label: 'My First dataset',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45]
-    }]
-  },
-
-  // Configuration options go here
-  options: {}
-});
-var chart = new Chart(ctx, {
-  // The type of chart we want to create
-  type: 'bar',
-
-  // The data for our dataset
-  data: {
-    labels: ['Result One', 'Result Two', 'Result Three'],
-    datasets: [{
-      label: 'Votes',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
-      data: [0, 10, 5, 2, 20, 30, 45]
-    }]
-  },
+//   // The data for our dataset
+//   data: {
+//     labels: ['Result One', 'Result Two', 'Result Three'],
+//     datasets: [{
+//       label: 'My First dataset',
+//       backgroundColor: 'rgb(255, 99, 132)',
+//       borderColor: 'rgb(255, 99, 132)',
+//       data: [0, 10, 5, 2, 20, 30, 45]
+//     }]
+//   },
 
   // Configuration options go here
-  options: {}
-});
+//   options: {}
+// });
+// var chart = new Chart(ctx, {
+  // The type of chart we want to create
+  // type: 'bar',
+
+  // The data for our dataset
+  // data: {
+    // labels: ['Result One', 'Result Two', 'Result Three'],
+    // datasets: [{
+    //   label: 'Votes',
+    //   data:dataVotes,
+    //   backgroundColor: 'rgb(255, 99, 132)',
+    //   borderColor: 'rgb(255, 99, 132)',
+    //   data: [0, 10, 5, 2, 20, 30, 45]
+
+      // The type of chart we want to create
+      // type: 'bar',
+
+      // The data for our dataset
+      // data: {
+      //   labels: ['Views'],
+      //   datasets: [{
+      //     label: 'Views',
+      //     backgroundColor: 'rgb(255, 99, 132)',
+      //     borderColor: 'rgb(255, 99, 132)',
+      //     data: [0, 10, 5, 2, 20, 30, 45]
+
+
+      //   },
+
+          // Configuration options go here
+//           options: {}
+// });
 
