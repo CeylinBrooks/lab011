@@ -59,8 +59,10 @@ new Gift('wine-glass');
 console.log(getRandomGiftsIndex());
 
 function populateQueue() {
-  renderQueue = [];
-  while (renderQueue.length < 3) {
+  while (renderQueue.length > 3){
+    renderQueue.shift();
+  }
+  while (renderQueue.length < 6) {
     var item = getRandomGiftsIndex();
     while (renderQueue.includes(item)) {
       item = getRandomGiftsIndex();
