@@ -9,6 +9,9 @@ var myContainer = document.getElementById('container');
 var imgOneEl = document.getElementById('imgone');
 var imgTwoEl = document.getElementById('imgtwo');
 var imgThreeEl = document.getElementById('imgthree');
+var names = [];
+var views = [];
+var votes = [];
 var myList = document.getElementById('list');
 var ctx = document.getElementById('myChart');
 
@@ -87,6 +90,11 @@ function renderGifts() {
 
 //chart
 function dataFunct() {
+  for (var i = 0; i < gifts.length; i++) {
+    names.push(gifts[i].name);
+    votes.push(gifts[i].votes);
+    views.push(gifts[i].views);
+  }
 
 }
 renderGifts();
@@ -120,6 +128,7 @@ function handleClick(event) {
     var stringifiedGifts = JSON.stringify(gifts);
     localStorage.setItem('stringifiedGifts', stringifiedGifts);
     renderResults();
+    renderChart();
 
   }
 
@@ -132,57 +141,36 @@ myContainer.addEventListener('click', handleClick);
 
 
 
-
-// var ctx = document.getElementById('myChart').getContext('2d');
-
-// var chart = new Chart(ctx, {
-//   // The type of chart we want to create
-//   type: 'bar',
-
-//   // The data for our dataset
-//   data: {
-//     labels: ['Result One', 'Result Two', 'Result Three'],
-//     datasets: [{
-//       label: 'My First dataset',
-//       backgroundColor: 'rgb(255, 99, 132)',
-//       borderColor: 'rgb(255, 99, 132)',
-//       data: [0, 10, 5, 2, 20, 30, 45]
-//     }]
-//   },
-
-  // Configuration options go here
-//   options: {}
-// });
-// var chart = new Chart(ctx, {
-  // The type of chart we want to create
-  // type: 'bar',
-
-  // The data for our dataset
-  // data: {
-    // labels: ['Result One', 'Result Two', 'Result Three'],
-    // datasets: [{
-    //   label: 'Votes',
-    //   data:dataVotes,
-    //   backgroundColor: 'rgb(255, 99, 132)',
-    //   borderColor: 'rgb(255, 99, 132)',
-    //   data: [0, 10, 5, 2, 20, 30, 45]
-
-      // The type of chart we want to create
-      // type: 'bar',
-
-      // The data for our dataset
-      // data: {
-      //   labels: ['Views'],
-      //   datasets: [{
-      //     label: 'Views',
-      //     backgroundColor: 'rgb(255, 99, 132)',
-      //     borderColor: 'rgb(255, 99, 132)',
-      //     data: [0, 10, 5, 2, 20, 30, 45]
+function renderChart() {
+  dataFunct();
+  console.log(names);
 
 
-      //   },
 
-          // Configuration options go here
-//           options: {}
-// });
+  var ctx = document.getElementById('myChart').getContext('2d');
 
+  var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'bar',
+
+    // The data for our dataset
+    data: {
+      labels: names,
+      datasets: [{
+        label: '# of Votes',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: votes
+      },
+      {
+        label: '# of Views',
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+        data: views
+      }]
+    },
+
+    // Configuration options go here
+    options: {}
+  });
+}
